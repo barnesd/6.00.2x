@@ -42,7 +42,7 @@ class edx(object):
         """
         #   fill in code to set the grade
         for c in self.myCourses:
-            if c == course:
+            if c.courseName == course:
                 c.setGrade(grade)
 
     def getGrade(self, course="6.02x"):
@@ -56,8 +56,10 @@ class edx(object):
         """
         #   fill in code to get the grade
         for c in self.myCourses:
-            if c == course:
+            if c.courseName == course:
                 return c.getGrade()
+        return -1
+
 
     def setPset(self, pset, score, course="6.00x"):
         """
@@ -72,9 +74,9 @@ class edx(object):
         and no error is thrown.
         """
         #   fill in code to set the pset
-        for c in self.myCourses:
-            if c == course:
-                self.c.setPset(pset, score)
+        for i in range(len(self.myCourses)):
+            if self.myCourses[i] == course:
+                self.myCourses[i].setPset(pset, score)
             
     def getPset(self, pset, course="6.00x"):
         """
@@ -86,7 +88,10 @@ class edx(object):
         If `course` was not part of the initialization, returns -1.
         """
         #   fill in code to get the pset
-        pass
+        for i in range(len(self.myCourses)):
+            if self.myCourses[i] == course:
+                return self.myCourses[i].getPset(pset)
+        return -1
 
 edX = edx( ["6.00x","6.01x","6.02x"] )
 edX.setPset(1,100)
