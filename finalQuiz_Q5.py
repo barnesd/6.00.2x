@@ -55,7 +55,9 @@ class edx(object):
         If `course` was not part of the initialization, returns -1.
         """
         #   fill in code to get the grade
-        pass
+        for c in self.myCourses:
+            if c == course:
+                return c.getGrade()
 
     def setPset(self, pset, score, course="6.00x"):
         """
@@ -70,8 +72,10 @@ class edx(object):
         and no error is thrown.
         """
         #   fill in code to set the pset
-        pass
-
+        for c in self.myCourses:
+            if c == course:
+                self.c.setPset(pset, score)
+            
     def getPset(self, pset, course="6.00x"):
         """
         pset: a string or a number
