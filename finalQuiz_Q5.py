@@ -41,7 +41,9 @@ class edx(object):
         The method does not return a value.
         """
         #   fill in code to set the grade
-        pass
+        for c in self.myCourses:
+            if c == course:
+                c.setGrade(grade)
 
     def getGrade(self, course="6.02x"):
         """
